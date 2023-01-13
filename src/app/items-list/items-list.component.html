@@ -1,0 +1,68 @@
+<div [style.background-image]="'url(' + 'https://github.com/fahadahmed07/react-js-quick-food-delivery-website/blob/master/src/assets/images/home-top-1.jpg?raw=true '+ ')'"
+    class="app-root">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+       
+        <div class="container px-4 px-lg-5">
+
+           <div class="col-lg-6 ">
+                <a class="navbar-brand" href="">
+                    <i class="fa-solid fa-utensils fa-3x text-light"></i> &nbsp; &nbsp;
+                    <b class="text-light" style="font-size: 30px;">Find Me foood</b>
+                </a>
+           </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2">
+                    <li class="nav-item">
+                        <input (keyup)="search($event)" style="width:300px;" type="text" class="form-control">
+                    </li>&nbsp;&nbsp;&nbsp;
+                    <li>
+                        <form class="d-flex ml-5 me-5">
+                            <a routerLink="/food-cart" class="btn btn-outline-light">
+                                <i class="bi-cart-fill "></i>
+                                Cart
+                                <!-- <span class="badge bg-light text-black ms-1 rounded-pill">0</span> -->
+                            </a>
+                           
+                        </form>
+                        
+                    </li>
+                </ul>
+                <div class="me-auto mb-2 mb-lg-0 ms-lg-2">
+                    <h3 class="text-light">Hello {{user}}!!</h3>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <section class="py-5 ">
+        <div class=" px-4 px-lg-5 mt-5 ">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="card col  ml-3 mb-5 me-4 card bg-dark " style="width: 18rem;"
+                    *ngFor="let restuarant of allRestaurants | pipe:searchKey :'name'">
+                    <a routerLink="/view-restuarant/{{restuarant.id}}" style="color: white; text-decoration: none;">
+                        <img [src]="restuarant.thumbnail_image
+                        " class="card-img-top pt-4" alt="no image" width="auto" height="auto">
+                        <div class="card-body">
+                            <p class="card-text text-light"></p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-dark text-light">{{restuarant.name}}</li>
+                                <li class="list-group-item bg-dark text-light">Cuisines : {{restuarant.cuisines}}</li>
+                                <li class="list-group-item bg-dark text-light">Rating : {{restuarant.rating}}</li>
+                            </ul>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Find me foood 2022 &reg; Sangeetha</p></div>
+</footer>

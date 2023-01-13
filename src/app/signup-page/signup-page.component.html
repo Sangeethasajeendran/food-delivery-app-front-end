@@ -1,0 +1,67 @@
+
+<div
+[style.background-image]="'url(' + 'https://github.com/fahadahmed07/react-js-quick-food-delivery-website/blob/master/src/assets/images/call-to-action-paralax.jpg?raw=true'+ ')'"
+class="app-root">
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+       
+  <div class="container px-4 px-lg-5">
+
+     <div class="col-lg-6 ">
+          <a class="navbar-brand" href="">
+              <i class="fa-solid fa-utensils fa-3x text-light"></i> &nbsp; &nbsp;
+              <b class="text-light" style="font-size: 30px;">Find Me foood</b>
+          </a>
+     </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-2"></div>
+  <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+    <div class="col-6 align-items-center  mt-5 ms-5 me-5">
+      <div class="form-floating mb-3 me-5 ms-5 mt-5">
+
+        <input  formControlName="username" name="Username" type="text" class="form-control" id="floatingInput"
+          placeholder="Username">
+        <label for="floatingInput">Username</label>
+      </div>
+      <div *ngIf="this.signupForm.get('username')?.errors&&this.signupForm.get('username')?.touched" class="text-danger text-center">
+        Invalid username
+      </div>
+
+      <div class="form-floating  ms-5 me-5 mt-3">
+
+        <input formControlName="password" name='password' type="password" class="form-control" id="floatingPassword"
+          placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div *ngIf="this.signupForm.get('password')?.errors&&this.signupForm.get('password')?.touched" class="text-danger text-center">
+        Invalid Password
+      </div>
+       <!-- server response -->
+       <div  class="text-danger"><b>{{eMsg}}</b></div>
+      
+      <div class="d-grid gap-2 col-7 mt-4 mb-5 mx-auto">
+        <!--  -->
+        <button *ngIf="!msg" class="btn btn-secondary" type="submit">Sign Up</button>
+      </div>
+      <div class="d-grid gap-2 col-7 mt-4 mb-5 mx-auto">
+       
+        <button  *ngIf="msg" class="btn btn-dark" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Loading...
+        </button>
+
+      </div> 
+      <div class="mb-3 px-5 ms-2 justify-content-center">
+        <h3 class="text-light text-center">Already have an account? <a style="text-decoration: none; color: white;" routerLink="/login-page"> Log In</a> </h3>
+      </div>
+    </div>
+  </form>
+  <div class="col-2"></div>
+</div>
+</div>
+<footer class="py-5 bg-dark">
+  <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Find me foood 2022 &reg; Sangeetha</p></div>
+</footer>

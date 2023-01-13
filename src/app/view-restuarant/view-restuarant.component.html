@@ -1,0 +1,81 @@
+<div [style.background-image]="'url(' + 'https://github.com/fahadahmed07/react-js-quick-food-delivery-website/blob/master/src/assets/images/call-to-action-paralax.jpg?raw=true'+ ')'"
+class="app-root">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <div class="container px-4 px-lg-5">
+           <div class="col-lg-6">
+                <a class="navbar-brand"routerLink="/items-list">
+                    <i class="fa-solid fa-utensils fa-3x text-light"></i> &nbsp; &nbsp;
+                    <b class="text-light" style="font-size: 30px;">Find Me foood</b>
+                </a>
+           </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto m\b-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <input placeholder="Search your food" (keyup)="search($event)" style="width:300px;" type="text" class="form-control">
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <a routerLink="/food-cart" class="btn btn-outline-light" >
+                        <i class="bi-cart-fill me-1"></i>
+                        Cart
+                        <!-- <span class="badge bg-light text-black ms-1 rounded-pill">{{count}}</span> -->
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <section class="py-5 ">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" [src]=restView.feature_image alt="no image" /></div>
+                <div class="col-md-6">
+                    <div class="small mb-1 text-light">{{restView.id}}</div>
+                    <h1 class="display-5 fw-bolder text-light">{{restView.name}}</h1>
+                    <!-- <div class="fs-5 mb-5">
+                        <span class="text-decoration-line-through">$45.00</span>
+                        <span>$40.00</span>
+                    </div> -->
+                    <ul class="list-group  list-group-flush bg-transparent">
+                       
+                        <li class="list-group-item bg-transparent text-light"><b>Address :  </b>{{restView.address}}</li>
+                        <li class="list-group-item bg-transparent text-light"><b>Cusines :  </b>{{restView.cuisines}}</li>
+                       
+                        <li class="list-group-item bg-transparent text-light"><b>Rating :  </b>{{restView.rating}}</li>
+                      </ul>
+                    <!-- <div class="d-flex">
+                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    
+       <div class="mt-2">
+        <h2 class="text-center text-light"><b>MENU</b></h2><hr style="color:white">
+            <div class="px-4 mx-5 py-5 pt-4 my-5  px-lg-4 mb-5">
+                <div class="mx-5 px-5 ">
+                <ul  class="list-group  " *ngFor="let item of restMenu | pipe:searchKey :'name'">
+                    <li  class="list-group-item text-light bg-transparent"><b>{{item.name}}</b></li>
+                    <li class="list-group-item text-dark bg-secondary">{{item.desc}}</li>
+                    <li class="list-group-item text-dark bg-secondary"><b>Price</b> {{item.price}} <i class="bi-cart-fill me-1"></i></li>
+                  <li class="list-group-item bg-secondary justify-content-center "><button (click)="addToCart(item)"  style="float: center;" class="btn btn-outline-dark mt-auto">
+                    <i class="fa-solid  fa-cart-plus" aria-hidden="true"></i>
+                </button></li>
+                </ul>
+                  </div><br>
+            </div><br>
+       </div>
+    </section>
+</div>
+
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Find me foood 2022 &reg; Sangeetha</p></div>
+</footer>

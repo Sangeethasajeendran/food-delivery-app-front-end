@@ -1,0 +1,26 @@
+.cardbg{
+background-color: black;
+height: 100vh;
+}
+/* section{
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url('');
+    height: 100vh;
+} */
+
+.app-root {
+    background-attachment: fixed;
+  }
+
+  .navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    
+}
+
+.card:hover{
+color: bisque;
+}

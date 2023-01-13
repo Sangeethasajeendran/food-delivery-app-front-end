@@ -1,0 +1,8 @@
+.app-root {
+    background-attachment: fixed;
+     height: 100vh; 
+  }
+  body{
+    overflow-y: hidden;
+  }
+ 
